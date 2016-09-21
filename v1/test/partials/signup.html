@@ -1,0 +1,84 @@
+
+
+	<head>	
+	<script>
+    function check_pass(){
+	var invalid = " "; // Invalid character is a space
+var pw1 = document.form.password.value;
+var pw2 = document.form.confirm_password.value;
+		var pd = document.getElementById('password');
+		
+// check for spaces
+if (document.form.password.value.indexOf(invalid) > -1) {
+alert("Sorry, spaces are not allowed.");
+pd.value="";
+return false;
+
+}
+    if (document.getElementById('password').value==document.getElementById('confirm_password').value){
+ document.getElementById('message').innerHTML = " Password Do Match";
+ document.getElementById('submit').disabled = false;
+}
+else {
+document.getElementById('message').innerHTML = " Password Doesn't Match";
+ document.getElementById('submit').disabled = true;
+}
+    }
+				function checkEmail() {
+
+				var email = document.getElementById('email');
+				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+				if (!filter.test(email.value)) {
+				alert('Please provide a valid email address');
+                email.value= "";			
+			email.focus;
+				return false;
+			 }
+	}
+	
+    </script>
+	</head>
+
+
+	<div class="col-md-5 col-lg-5 col-md-offset-4 col-lg-offset-4">
+			<font color="#ffffff">	<h1>Sign Up</h1>
+    <div class="row">
+
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li><a href="#/home">Home</a>
+                </li>
+                <li class="active">Sign up</li>
+            </ol>
+        </div>
+
+    </div>
+			
+<h5> You Are Creating Account Be Careful While Filling Information </h5>
+				<form  method="post" action="partials/insert.php"id="form" name="form">
+					<div class=form-content>
+						<div class=form-group> 
+							<input type=text class="form-control input-underline input-lg" name="fname" placeholder="Firstname" required>
+							<input type=text class="form-control input-underline input-lg" name="lname" placeholder="Lastname"required>
+							
+							<input type="password" class="form-control input-underline input-lg" name="password" id="password" placeholder="Choose Password" onchange='check_pass();' title="Enter Password Min 	Length = 6 Containing Atleast One(Small,Caps or Numeric)" required pattern="(?=.*[a-z])(?=.*[A-Z]).{1,6}">
+							<input type="password" class="form-control input-underline input-lg" name="confirm_password" id="confirm_password" placeholder="Re-type Password" onchange='check_pass();' required pattern="(?=.*[a-z])(?=.*[A-Z]).{1,6}">
+<span id='message'></span>
+							<input type="email" class="form-control input-underline input-lg" name="email" id='email' placeholder="Email Id                              eg- abc@gmail.com" onchange='checkEmail();' required>
+							
+							<input type="text" class="form-control input-underline input-lg" placeholder="Mobile Number" name="mobile" required><br/>
+				<input type="submit" class="btn btn-white btn-outline btn-info btn-lg btn-rounded btn-white" id="submit"  value="Register Now" disabled>
+					
+						</div>
+	<button type="submit" class="btn btn-white btn-danger btn-outline btn-lg btn-rounded btn-white" onclick="location.href='#/login'">Sign In</button>
+						
+<h5> Already Have Account Registered ? Just SignIn !</h5>
+		</div> 
+					
+				</font>			
+				</form>
+			</div> 
+		</div> 
+		
+	
